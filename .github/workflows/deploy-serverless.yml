@@ -17,9 +17,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Use Doppler
-        uses: dopplerhq/cli-action@v2
-
       - name: Deploy to AWS
         run: sls deploy --stage prod --region ap-southeast-1
         env:
