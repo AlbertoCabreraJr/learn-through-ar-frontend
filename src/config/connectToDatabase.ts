@@ -10,7 +10,7 @@ export const connectToDatabase = async (): Promise<Db> => {
   const client = await MongoClient.connect(process.env.DB_CONNECTION_STRING)
 
   // Specify which database we want to use
-  const db = await client.db(process.env.SERVICE_NAME + '-' + process.env.STAGE)
+  const db = client.db(process.env.SERVICE_NAME + '-' + process.env.STAGE)
 
   cachedDb = db
   return db

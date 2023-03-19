@@ -3,7 +3,7 @@ import type { AWS } from '@serverless/typescript'
 import functions from '@functions/index'
 
 const serverlessConfiguration: AWS = {
-  service: 'learn-through-ar-backend',
+  service: '${env:SERVICE_NAME}',
   frameworkVersion: '3',
   plugins: ['serverless-esbuild', 'serverless-offline'],
   provider: {
@@ -11,6 +11,7 @@ const serverlessConfiguration: AWS = {
     runtime: 'nodejs14.x',
     memorySize: 128,
     region: 'ap-southeast-1',
+    stage: '${env:STAGE}',
     timeout: 5,
     endpointType: 'REGIONAL',
     apiGateway: {
@@ -18,8 +19,10 @@ const serverlessConfiguration: AWS = {
       shouldStartNameWithService: true
     },
     environment: {
-      COGNITO_IDENTITY_POOL_ID: '',
-      DB_CONNECTION_STRING: '',
+      COGNITO_IDENTITY_POOL_ID: '${env:COGNITO_IDENTITY_POOL_ID}',
+      SERVICE_NAME: '${env:SERVICE_NAME}',
+      DB_CONNECTION_STRING: '${env:DB_CONNECTION_STRING}',
+      STAGE: '${env:STAGE}',
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000'
     }
@@ -37,6 +40,11 @@ const serverlessConfiguration: AWS = {
       define: { 'require.resolve': undefined },
       platform: 'node',
       concurrency: 10
+    },
+    'serverless-offline': {
+      httpPort: 4000,
+      websocketPort: 4001,
+      lambdaPort: 4002
     }
   },
   resources: {

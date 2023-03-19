@@ -4,7 +4,7 @@
   "description": "Serverless aws-nodejs-typescript template",
   "main": "serverless.ts",
   "scripts": {
-    "dev": "sls offline --stage dev"
+    "dev":"doppler run --project thesis-backend --config dev --enable-dns-resolver --dns-resolver-address 1.1.1.1:53 --dns-resolver-proto udp --dns-resolver-timeout 5s -- sls offline --stage dev"
   },
   "engines": {
     "node": ">=14.15.0"
