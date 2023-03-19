@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const moduleSchema = new mongoose.Schema(
   {
-    moduleNo: {
+    moduleNumber: {
       type: Number,
       required: true
     },
