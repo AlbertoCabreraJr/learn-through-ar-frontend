@@ -6,10 +6,6 @@ const choiceSchema = new mongoose.Schema(
       type: String,
       required: true
     }
-    // question: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: 'Question'
-    // }
   },
   { timestamps: true }
 )
