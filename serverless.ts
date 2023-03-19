@@ -12,7 +12,7 @@ const serverlessConfiguration: AWS = {
     memorySize: 128,
     region: 'ap-southeast-1',
     stage: '${env:STAGE}',
-    timeout: 5,
+    timeout: 30,
     endpointType: 'REGIONAL',
     apiGateway: {
       minimumCompressionSize: 1024,
