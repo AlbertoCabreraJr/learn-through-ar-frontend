@@ -1,6 +1,6 @@
 import type { AWS } from '@serverless/typescript'
 
-import hello from '@functions/hello'
+import functions from '@functions/index'
 
 const serverlessConfiguration: AWS = {
   service: 'learn-through-ar-backend',
@@ -25,7 +25,7 @@ const serverlessConfiguration: AWS = {
     }
   },
   // import the function via paths
-  functions: { hello },
+  functions: { ...functions },
   package: { individually: true },
   custom: {
     esbuild: {
