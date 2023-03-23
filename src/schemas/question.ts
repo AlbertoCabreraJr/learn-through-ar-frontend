@@ -15,10 +15,6 @@ const questionSchema = new mongoose.Schema(
     correctChoice: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Choice'
-    },
-    exam: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Exam'
     }
   },
   { timestamps: true }

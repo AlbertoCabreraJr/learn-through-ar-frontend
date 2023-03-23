@@ -6,10 +6,6 @@ const examSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    module: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Module'
-    },
     questions: [
       {
         type: mongoose.Schema.Types.ObjectId,

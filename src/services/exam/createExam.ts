@@ -1,17 +1,17 @@
 import mongoose, { ObjectId } from 'mongoose'
+import Exam from 'src/types/exam'
 
 type Args = {
   db: typeof mongoose
   exam: {
     title: string
-    module: ObjectId
-    questions: [ObjectId]
+    questions: ObjectId[]
     score: number
     finished: boolean
   }
 }
 
-const createExam = async (args: Args) => {
+const createExam = async (args: Args): Promise<Exam> => {
   const { exam, db } = args
 
   const newExam = await db.model('Exam').create(exam)

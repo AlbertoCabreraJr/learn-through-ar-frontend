@@ -1,4 +1,5 @@
-import mongoose, { ObjectId } from 'mongoose'
+import mongoose from 'mongoose'
+import Topic from 'src/types/topic'
 
 type Args = {
   db: typeof mongoose
@@ -6,11 +7,10 @@ type Args = {
     topicNumber: number
     title: string
     finished: boolean
-    module: ObjectId
   }
 }
 
-const createTopic = async (args: Args) => {
+const createTopic = async (args: Args): Promise<Topic> => {
   const { topic, db } = args
 
   const newTopic = await db.model('Topic').create(topic)

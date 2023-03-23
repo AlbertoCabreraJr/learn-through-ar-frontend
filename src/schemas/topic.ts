@@ -13,10 +13,6 @@ const topicSchema = new mongoose.Schema(
     finished: {
       type: Boolean,
       default: false
-    },
-    module: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Module'
     }
   },
   { timestamps: true }

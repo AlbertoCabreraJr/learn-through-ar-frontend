@@ -2,13 +2,13 @@ import mongoose from 'mongoose'
 
 const courseSchema = new mongoose.Schema(
   {
-    name: {
+    userEmail: {
       type: String,
       required: true
     },
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User'
+    name: {
+      type: String,
+      required: true
     },
     modules: [
       {
