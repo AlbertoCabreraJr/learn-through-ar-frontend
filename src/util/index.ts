@@ -8,6 +8,6 @@ export const getResponseHeaders = () => {
   }
 }
 
-export const getIdToken = (headers) => {
+export const getCode = (headers) => {
   return headers.Authorization
 }
