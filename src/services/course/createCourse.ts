@@ -45,23 +45,26 @@ const createModuleWithExamAndTopics = async (args: {
   const newExam = await createExamWithQuestions({ db, exam: module.exam })
   const topicIds = []
 
-  module.topics.map(async (topic) => {
+  for (let i = 0; i < module.topics.length; ++i) {
+    const topic = module.topics[i]
+
     const newTopic = await createTopic({ db, topic })
     topicIds.push(newTopic._id)
-  })
-
-  const temporaryModule = {
-    moduleNumber: module.moduleNumber,
-    title: module.title,
-    subtitle: module.subtitle,
-    totalTopicsAndExam: module.totalTopicsAndExam,
-    topics: topicIds,
-    progress: module.progress,
-    exam: newExam._id,
-    finished: module.finished
   }
 
-  const newModule = await createModule({ db, module: temporaryModule })
+  const newModule = await createModule({
+    db,
+    module: {
+      moduleNumber: module.moduleNumber,
+      title: module.title,
+      subtitle: module.subtitle,
+      totalTopicsAndExam: module.totalTopicsAndExam,
+      topics: topicIds,
+      progress: module.progress,
+      exam: newExam._id,
+      finished: module.finished
+    }
+  })
 
   return newModule
 }
@@ -74,7 +77,9 @@ const createExamWithQuestions = async (args: {
 
   const questions = []
 
-  exam.questions.map(async (item) => {
+  for (let i = 0; i < exam.questions.length; ++i) {
+    const item = exam.questions[i]
+
     const question = await createQuestionWithChoices({
       db,
       choices: item.choices,
@@ -83,7 +88,7 @@ const createExamWithQuestions = async (args: {
     })
 
     questions.push(question._id)
-  })
+  }
 
   const newExam = await createExam({
     db,
@@ -109,7 +114,9 @@ const createQuestionWithChoices = async (args: {
   const choiceIds = []
   let correctChoiceId: ObjectId
 
-  choices.map(async (choice) => {
+  for (let i = 0; i < choices.length; ++i) {
+    const choice = choices[i]
+
     const newChoice = await createChoice({
       db,
       choice: { text: choice }
@@ -120,7 +127,7 @@ const createQuestionWithChoices = async (args: {
     }
 
     choiceIds.push(newChoice._id)
-  })
+  }
 
   const newQuestion = await createQuestion({
     db,
