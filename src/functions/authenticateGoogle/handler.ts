@@ -4,8 +4,6 @@ import { middyfy } from '@libs/lambda'
 import { getIdToken, getResponseHeaders } from 'src/util'
 import { CognitoIdentity } from 'aws-sdk'
 import jwtDecode from 'jwt-decode'
-import createUser from 'src/services/user/createUser'
-import { connectToDatabase } from 'src/config/connectToDatabase'
 
 const cognitoIdentity = new CognitoIdentity()
 const identityPoolId = process.env.COGNITO_IDENTITY_POOL_ID
@@ -31,21 +29,12 @@ const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event,
     }
 
     data = await cognitoIdentity.getCredentialsForIdentity(params).promise()
+
     let decoded = jwtDecode(idToken)
     // @ts-ignore
     data.email = decoded.email
     // @ts-ignore
     data.name = decoded.name
-
-    // Should be separate on its own route
-    const db = await connectToDatabase()
-
-    // @ts-ignore
-    const user = await db.model('User').findOne({ email: data.email })
-    if (!user) {
-      // @ts-ignore
-      await createUser({ db, user: { email: data.email, name: data.name } })
-    }
 
     return formatJSONResponse({
       statusCode: 200,
