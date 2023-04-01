@@ -19,6 +19,9 @@ const serverlessConfiguration: AWS = {
       shouldStartNameWithService: true
     },
     environment: {
+      REDIRECT_URI: '${env:REDIRECT_URI}',
+      GOOGLE_CLIENT_ID: '${env:GOOGLE_CLIENT_ID}',
+      GOOGLE_CLIENT_SECRET: '${env:GOOGLE_CLIENT_SECRET}',
       COGNITO_IDENTITY_POOL_ID: '${env:COGNITO_IDENTITY_POOL_ID}',
       SERVICE_NAME: '${env:SERVICE_NAME}',
       DB_CONNECTION_STRING: '${env:DB_CONNECTION_STRING}',

@@ -26,7 +26,7 @@ export const connectToDatabase = async (): Promise<typeof mongoose> => {
   conn.model('Choice', choiceSchema)
   conn.model('Question', questionSchema)
   conn.model('Exam', examSchema)
-  conn.model('Topc', topicSchema)
+  conn.model('Topic', topicSchema)
   conn.model('Module', moduleSchema)
   conn.model('Course', courseSchema)
   conn.model('User', userSchema)

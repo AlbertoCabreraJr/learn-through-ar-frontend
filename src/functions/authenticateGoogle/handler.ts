@@ -5,6 +5,8 @@ import { getCode, getResponseHeaders } from 'src/util'
 import { CognitoIdentity } from 'aws-sdk'
 import jwtDecode from 'jwt-decode'
 import axios from 'axios'
+import { connectToDatabase } from 'src/config/connectToDatabase'
+import createUser from 'src/services/user/createUser'
 
 type OAuthResult = {
   access_token: string
@@ -12,7 +14,7 @@ type OAuthResult = {
   id_token: string
   scope: string
   token_type: string
-  refresh_token?: string
+  refresh_token: string
 }
 
 const cognitoIdentity = new CognitoIdentity()
@@ -20,10 +22,9 @@ const identityPoolId = process.env.COGNITO_IDENTITY_POOL_ID
 const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event, context) => {
   try {
     const code = getCode(event.headers)
-    const client_id = '235149885459-thsbs05hs7s5ojteluhqspj9gtn3t0in.apps.googleusercontent.com'
-    const client_secret = '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'
-    const redirect_uri =
-      process.env.STAGE === 'dev' ? 'http://localhost:3000' : 'https://thesis-frontend-lake.vercel.app'
+    const client_id = process.env.GOOGLE_CLIENT_ID
+    const client_secret = process.env.GOOGLE_CLIENT_SECRET
+    const redirect_uri = process.env.REDIRECT_URI
 
     const { data: oauthResult } = await axios.post<OAuthResult>(
       `https://oauth2.googleapis.com/token?code=${code}&client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri}&grant_type=authorization_code`
@@ -54,15 +55,23 @@ const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event,
     // @ts-ignore
     awsCredentials.name = decoded.name
 
+    // Should be separate on its own route
+    const db = await connectToDatabase()
+
+    // @ts-ignore
+    const user = await db.model('User').findOne({ email: awsCredentials.email })
+    if (!user) {
+      // @ts-ignore
+      await createUser({ db, user: { email: awsCredentials.email, name: awsCredentials.name } })
+    }
+
     return formatJSONResponse({
       statusCode: 200,
       headers: getResponseHeaders(),
       body: {
         awsCredentials,
-        auth: {
-          access_token: oauthResult.access_token,
-          expires_in: oauthResult.expires_in
-        }
+        id_token: oauthResult.id_token,
+        refresh_token: oauthResult.refresh_token
       }
     })
   } catch (error) {
