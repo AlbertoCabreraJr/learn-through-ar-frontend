@@ -7,7 +7,7 @@ export default {
   events: [
     {
       http: {
-        method: 'post',
+        method: 'get',
         path: 'hello',
         authorizer: 'aws_iam',
         request: {

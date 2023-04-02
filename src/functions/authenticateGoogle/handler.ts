@@ -59,10 +59,10 @@ const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event,
     const db = await connectToDatabase()
 
     // @ts-ignore
-    const user = await db.model('User').findOne({ email: awsCredentials.email })
+    let user = await db.model('User').findOne({ email: awsCredentials.email })
     if (!user) {
       // @ts-ignore
-      await createUser({ db, user: { email: awsCredentials.email, name: awsCredentials.name } })
+      user = await createUser({ db, user: { email: awsCredentials.email, name: awsCredentials.name } })
     }
 
     return formatJSONResponse({
@@ -71,7 +71,8 @@ const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event,
       body: {
         awsCredentials,
         id_token: oauthResult.id_token,
-        refresh_token: oauthResult.refresh_token
+        refresh_token: oauthResult.refresh_token,
+        user
       }
     })
   } catch (error) {

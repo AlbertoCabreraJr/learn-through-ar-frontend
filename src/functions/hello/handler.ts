@@ -12,9 +12,7 @@ const hello: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) =
   return formatJSONResponse({
     statusCode: 200,
     headers: getResponseHeaders(),
-    body: {
-      message: `Hello ${event.body.name}, welcome to the exciting Serverless world!`
-    }
+    body: {}
   })
 }
 

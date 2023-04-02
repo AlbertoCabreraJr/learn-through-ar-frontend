@@ -7,7 +7,7 @@ export const ALLOWED_HEADERS = [
   'X-Api-Key',
   'X-Amz-Security-Token',
   'X-Amz-User-Agent',
-  'app_user_name',
+  'app_user_id',
   'app_user_email'
 ]
 
