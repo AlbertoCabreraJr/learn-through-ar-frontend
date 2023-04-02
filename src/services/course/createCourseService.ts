@@ -2,11 +2,11 @@ import mongoose, { ObjectId } from 'mongoose'
 import { LEARN_THROUGH_AR_DATA } from 'src/constants'
 import Course from 'src/types/course'
 import Question from 'src/types/question'
-import createChoice from '../choice/createChoice'
-import createExam from '../exam/createExam'
+import createChoiceService from '../choice/createChoiceService'
+import createExamService from '../exam/createExamService'
 import createModuleService from '../module/createModuleService'
-import createQuestion from '../question/createQuestion'
-import createTopic from '../topic/createTopic'
+import createQuestionService from '../question/createQuestionService'
+import createTopicService from '../topic/createTopicService'
 
 type Args = {
   db: typeof mongoose
@@ -48,7 +48,7 @@ const createModuleWithExamAndTopics = async (args: {
   for (let i = 0; i < module.topics.length; ++i) {
     const topic = module.topics[i]
 
-    const newTopic = await createTopic({ db, topic })
+    const newTopic = await createTopicService({ db, topic })
     topicIds.push(newTopic._id)
   }
 
@@ -90,7 +90,7 @@ const createExamWithQuestions = async (args: {
     questions.push(question._id)
   }
 
-  const newExam = await createExam({
+  const newExam = await createExamService({
     db,
     exam: {
       title: exam.title,
@@ -117,7 +117,7 @@ const createQuestionWithChoices = async (args: {
   for (let i = 0; i < choices.length; ++i) {
     const choice = choices[i]
 
-    const newChoice = await createChoice({
+    const newChoice = await createChoiceService({
       db,
       choice: { text: choice }
     })
@@ -129,7 +129,7 @@ const createQuestionWithChoices = async (args: {
     choiceIds.push(newChoice._id)
   }
 
-  const newQuestion = await createQuestion({
+  const newQuestion = await createQuestionService({
     db,
     question: {
       text: question,

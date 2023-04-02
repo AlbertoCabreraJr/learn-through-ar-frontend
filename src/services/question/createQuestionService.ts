@@ -10,7 +10,7 @@ type Args = {
   }
 }
 
-const createQuestion = async (args: Args): Promise<Question> => {
+const createQuestionService = async (args: Args): Promise<Question> => {
   const { question, db } = args
 
   const newQuestion = await db.model('Question').create(question)
@@ -18,4 +18,4 @@ const createQuestion = async (args: Args): Promise<Question> => {
   return newQuestion
 }
 
-export default createQuestion
+export default createQuestionService

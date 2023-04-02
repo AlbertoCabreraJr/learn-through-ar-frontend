@@ -10,7 +10,7 @@ type Args = {
   }
 }
 
-const createUser = async (args: Args): Promise<User> => {
+const createUserService = async (args: Args): Promise<User> => {
   const { user, db } = args
 
   const course = await createCourseService({ db, userEmail: user.email })
@@ -20,4 +20,4 @@ const createUser = async (args: Args): Promise<User> => {
   return newUser
 }
 
-export default createUser
+export default createUserService

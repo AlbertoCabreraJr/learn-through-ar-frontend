@@ -6,7 +6,7 @@ import { CognitoIdentity } from 'aws-sdk'
 import jwtDecode from 'jwt-decode'
 import axios from 'axios'
 import { connectToDatabase } from 'src/config/connectToDatabase'
-import createUser from 'src/services/user/createUser'
+import createUserService from 'src/services/user/createUserService'
 
 type OAuthResult = {
   access_token: string
@@ -19,7 +19,7 @@ type OAuthResult = {
 
 const cognitoIdentity = new CognitoIdentity()
 const identityPoolId = process.env.COGNITO_IDENTITY_POOL_ID
-const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event, context) => {
+const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event) => {
   try {
     const code = getCode(event.headers)
     const client_id = process.env.GOOGLE_CLIENT_ID
@@ -62,7 +62,7 @@ const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event,
     let user = await db.model('User').findOne({ email: awsCredentials.email })
     if (!user) {
       // @ts-ignore
-      user = await createUser({ db, user: { email: awsCredentials.email, name: awsCredentials.name } })
+      user = await createUserService({ db, user: { email: awsCredentials.email, name: awsCredentials.name } })
     }
 
     return formatJSONResponse({
