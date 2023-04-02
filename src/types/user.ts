@@ -1,10 +1,10 @@
-import { Date, ObjectId } from 'mongoose'
+import mongoose, { Date } from 'mongoose'
 
 type User = {
-  _id: ObjectId
+  _id: mongoose.Types.ObjectId
   name: string
   email: string
-  course: ObjectId
+  course: mongoose.Types.ObjectId
   createdAt: Date
   updatedAt: Date
 }

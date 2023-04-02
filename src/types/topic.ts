@@ -1,11 +1,11 @@
-import { Date, ObjectId } from 'mongoose'
+import mongoose, { Date } from 'mongoose'
 
 type Topic = {
-  _id: ObjectId
+  _id: mongoose.Types.ObjectId
   topicNumber: number
   title: string
   finished: boolean
-  module: ObjectId
+  module: mongoose.Types.ObjectId
   createdAt: Date
   updatedAt: Date
 }

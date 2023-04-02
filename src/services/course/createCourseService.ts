@@ -1,4 +1,4 @@
-import mongoose, { ObjectId } from 'mongoose'
+import mongoose from 'mongoose'
 import { LEARN_THROUGH_AR_DATA } from 'src/constants'
 import Course from 'src/types/course'
 import Question from 'src/types/question'
@@ -112,7 +112,7 @@ const createQuestionWithChoices = async (args: {
   const { db, question, choices, correctChoice } = args
 
   const choiceIds = []
-  let correctChoiceId: ObjectId
+  let correctChoiceId
 
   for (let i = 0; i < choices.length; ++i) {
     const choice = choices[i]

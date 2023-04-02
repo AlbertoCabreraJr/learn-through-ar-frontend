@@ -1,12 +1,12 @@
-import mongoose, { ObjectId } from 'mongoose'
+import mongoose from 'mongoose'
 import Question from 'src/types/question'
 
 type Args = {
   db: typeof mongoose
   question: {
     text: string
-    choices: ObjectId[]
-    correctChoice: ObjectId
+    choices: mongoose.Types.ObjectId[]
+    correctChoice: mongoose.Types.ObjectId
   }
 }
 

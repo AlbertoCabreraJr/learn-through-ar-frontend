@@ -1,14 +1,14 @@
-import { Date, ObjectId } from 'mongoose'
+import mongoose, { Date } from 'mongoose'
 
 type Module = {
-  _id: ObjectId
+  _id: mongoose.Types.ObjectId
   moduleNumber: number
   title: string
   subtitle: string
   totalTopicsAndExam: number
-  topics: ObjectId[]
+  topics: mongoose.Types.ObjectId[]
   progress: number
-  exam: ObjectId
+  exam: mongoose.Types.ObjectId
   finished: boolean
   createdAt: Date
   updatedAt: Date

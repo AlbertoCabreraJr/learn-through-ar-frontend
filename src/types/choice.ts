@@ -1,7 +1,7 @@
-import { Date, ObjectId } from 'mongoose'
+import mongoose, { Date } from 'mongoose'
 
 type Choice = {
-  _id: ObjectId
+  _id: mongoose.Types.ObjectId
   text: string
   createdAt: Date
   updatedAt: Date

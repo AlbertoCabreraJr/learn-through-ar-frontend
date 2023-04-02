@@ -1,4 +1,4 @@
-import mongoose, { ObjectId } from 'mongoose'
+import mongoose from 'mongoose'
 import Module from 'src/types/module'
 
 type Args = {
@@ -8,9 +8,9 @@ type Args = {
     title: string
     subtitle: string
     totalTopicsAndExam: number
-    topics: ObjectId[]
+    topics: mongoose.Types.ObjectId[]
     progress: number
-    exam: ObjectId
+    exam: mongoose.Types.ObjectId
     finished: boolean
   }
 }

@@ -1,9 +1,9 @@
-import { Date, ObjectId } from 'mongoose'
+import mongoose, { Date } from 'mongoose'
 
 type Exam = {
-  _id: ObjectId
+  _id: mongoose.Types.ObjectId
   title: string
-  questions: ObjectId[]
+  questions: mongoose.Types.ObjectId[]
   score: number
   finished: boolean
   createdAt: Date

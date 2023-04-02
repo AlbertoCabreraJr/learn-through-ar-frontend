@@ -1,11 +1,11 @@
-import mongoose, { ObjectId } from 'mongoose'
+import mongoose from 'mongoose'
 import Exam from 'src/types/exam'
 
 type Args = {
   db: typeof mongoose
   exam: {
     title: string
-    questions: ObjectId[]
+    questions: mongoose.Types.ObjectId[]
     score: number
     finished: boolean
   }
