@@ -8,7 +8,7 @@ export default {
     {
       http: {
         method: 'put',
-        path: 'modules/{id}',
+        path: 'topics/{id}',
         cors: {
           origin: '*',
           headers: ALLOWED_HEADERS

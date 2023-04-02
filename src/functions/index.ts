@@ -6,6 +6,7 @@ import getModule from './module/getModule'
 import updateModule from './module/updateModule'
 import updateExam from './exam/updateExam'
 import getTopic from './topic/getTopic'
+import updateTopic from './topic/updateTopic'
 
 export default {
   authenticateGoogle,
@@ -15,5 +16,6 @@ export default {
   getModule,
   updateExam,
   updateModule,
-  getTopic
+  getTopic,
+  updateTopic
 }
