@@ -13,6 +13,7 @@ const getModuleService = async (args: Args): Promise<Course> => {
     .model('Module')
     .findOne({ _id: new mongoose.Types.ObjectId(moduleId) })
     .populate('topics')
+    .populate('exam')
     .exec()
 
   return course
