@@ -4,7 +4,7 @@ import Course from 'src/types/course'
 import Question from 'src/types/question'
 import createChoice from '../choice/createChoice'
 import createExam from '../exam/createExam'
-import createModule from '../module/createModule'
+import createModuleService from '../module/createModuleService'
 import createQuestion from '../question/createQuestion'
 import createTopic from '../topic/createTopic'
 
@@ -52,7 +52,7 @@ const createModuleWithExamAndTopics = async (args: {
     topicIds.push(newTopic._id)
   }
 
-  const newModule = await createModule({
+  const newModule = await createModuleService({
     db,
     module: {
       moduleNumber: module.moduleNumber,

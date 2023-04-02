@@ -15,7 +15,7 @@ type Args = {
   }
 }
 
-const createModule = async (args: Args): Promise<Module> => {
+const createModuleService = async (args: Args): Promise<Module> => {
   const { module, db } = args
 
   const newModule = await db.model('Module').create(module)
@@ -23,4 +23,4 @@ const createModule = async (args: Args): Promise<Module> => {
   return newModule
 }
 
-export default createModule
+export default createModuleService
