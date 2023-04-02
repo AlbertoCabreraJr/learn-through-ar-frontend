@@ -1,4 +1,3 @@
-import schema from './schema'
 import { handlerPath } from '@libs/handler-resolver'
 import { ALLOWED_HEADERS } from 'src/constants'
 
@@ -8,13 +7,8 @@ export default {
     {
       http: {
         method: 'get',
-        path: 'hello',
+        path: '/courses/{id}',
         authorizer: 'aws_iam',
-        request: {
-          schemas: {
-            'application/json': schema
-          }
-        },
         cors: {
           origin: '*',
           headers: ALLOWED_HEADERS

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import User from 'src/types/user'
-import createCourse from '../course/createCourse'
+import createCourseService from '../course/createCourseService'
 
 type Args = {
   db: typeof mongoose
@@ -13,7 +13,7 @@ type Args = {
 const createUser = async (args: Args): Promise<User> => {
   const { user, db } = args
 
-  const course = await createCourse({ db, userEmail: user.email })
+  const course = await createCourseService({ db, userEmail: user.email })
 
   const newUser = await db.model('User').create({ ...user, course })
 

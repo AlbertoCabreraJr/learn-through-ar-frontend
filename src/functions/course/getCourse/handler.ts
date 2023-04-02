@@ -1,20 +1,19 @@
 import type { ValidatedEventAPIGatewayProxyEvent } from '@libs/api-gateway'
 import { formatJSONResponse } from '@libs/api-gateway'
 import { middyfy } from '@libs/lambda'
+import { connectToDatabase } from 'src/config/connectToDatabase'
+import getCourseService from 'src/services/course/getCourseService'
 import { getResponseHeaders } from 'src/util'
-import schema from './schema'
-const aws4 = require('aws4')
 
-const signer: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event, context) => {
+const getCourse: ValidatedEventAPIGatewayProxyEvent<{}> = async (event) => {
   try {
-    const request = event.body.request
-    const credentials = event.body.credentials
+    const db = await connectToDatabase()
+    const course = await getCourseService({ db, courseId: event.pathParameters.id })
 
-    const signedRequest = aws4.sign(request, credentials)
     return formatJSONResponse({
       statusCode: 200,
       headers: getResponseHeaders(),
-      body: signedRequest.headers
+      body: course
     })
   } catch (error) {
     return formatJSONResponse({
@@ -25,4 +24,4 @@ const signer: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event, 
   }
 }
 
-export const main = middyfy(signer)
+export const main = middyfy(getCourse)

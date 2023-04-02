@@ -13,7 +13,7 @@ type Args = {
   userEmail: string
 }
 
-const createCourse = async (args: Args): Promise<Course> => {
+const createCourseService = async (args: Args): Promise<Course> => {
   const { db, userEmail } = args
 
   const moduleOne = await createModuleWithExamAndTopics({ db, module: LEARN_THROUGH_AR_DATA.moduleOne })
@@ -141,4 +141,4 @@ const createQuestionWithChoices = async (args: {
   return newQuestion
 }
 
-export default createCourse
+export default createCourseService

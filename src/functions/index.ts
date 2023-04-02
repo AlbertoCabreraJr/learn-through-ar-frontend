@@ -1,9 +1,9 @@
-import hello from './hello'
 import authenticateGoogle from './authenticateGoogle'
 import signer from './signer'
+import getCourse from './course/getCourse'
 
 export default {
-  hello,
   authenticateGoogle,
-  signer
+  signer,
+  getCourse
 }
