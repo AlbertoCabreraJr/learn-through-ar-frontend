@@ -9,14 +9,18 @@ type Args = {
 const getModuleService = async (args: Args): Promise<Course> => {
   const { db, moduleId } = args
 
-  const course = await db
+  const module = await db
     .model('Module')
     .findOne({ _id: new mongoose.Types.ObjectId(moduleId) })
     .populate('topics')
     .populate('exam')
     .exec()
 
-  return course
+  if (!module) {
+    throw new Error('Module does not exist')
+  }
+
+  return module
 }
 
 export default getModuleService

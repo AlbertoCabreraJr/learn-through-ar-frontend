@@ -18,6 +18,10 @@ const getExamService = async (args: Args): Promise<Exam> => {
     })
     .exec()
 
+  if (!exam) {
+    throw new Error('Exam does not exist')
+  }
+
   return exam
 }
 

@@ -15,6 +15,10 @@ const getCourseService = async (args: Args): Promise<Course> => {
     .populate('modules')
     .exec()
 
+  if (!course) {
+    throw new Error('Course does not exist')
+  }
+
   return course
 }
 

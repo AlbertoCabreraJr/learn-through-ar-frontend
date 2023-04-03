@@ -9,9 +9,13 @@ type Args = {
 const getTopicService = async (args: Args): Promise<Course> => {
   const { db, topicId } = args
 
-  const course = await db.model('Topic').findOne({ _id: new mongoose.Types.ObjectId(topicId) })
+  const topic = await db.model('Topic').findOne({ _id: new mongoose.Types.ObjectId(topicId) })
 
-  return course
+  if (!topic) {
+    throw new Error('Topic does not exist')
+  }
+
+  return topic
 }
 
 export default getTopicService
