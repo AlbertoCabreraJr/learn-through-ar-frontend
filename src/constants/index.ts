@@ -36,7 +36,7 @@ export const LEARN_THROUGH_AR_DATA = {
     ],
     progress: 0,
     exam: {
-      title: 'Practice Assessment',
+      title: 'Introduction Practice Assessment',
       questions: [
         {
           text: 'What is programming?',
@@ -99,7 +99,7 @@ export const LEARN_THROUGH_AR_DATA = {
     ],
     progress: 0,
     exam: {
-      title: 'Practice Assessment',
+      title: 'Data Types Practice Assessment',
       questions: [
         {
           text: 'What is the appropriate data type to use for a person’s address?',
@@ -146,7 +146,7 @@ export const LEARN_THROUGH_AR_DATA = {
     ],
     progress: 0,
     exam: {
-      title: 'Practice Assessment',
+      title: 'Variables Practice Assessment',
       questions: [
         {
           text: "What's a variable in programming? Think of it like a…",
@@ -203,7 +203,7 @@ export const LEARN_THROUGH_AR_DATA = {
     ],
     progress: 0,
     exam: {
-      title: 'Practice Assessment',
+      title: 'Arithmetic Operations Practice Assessment',
       questions: [
         {
           text: 'Are arithmetic operations supported in programming?',

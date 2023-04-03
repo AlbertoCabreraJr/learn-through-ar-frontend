@@ -8,6 +8,7 @@ import schema from './schema'
 
 const updateModule: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) => {
   try {
+    console.log(event.body)
     const db = await connectToDatabase()
     await updateTopicService({ db, body: event.body, topicId: event.pathParameters.id })
 
