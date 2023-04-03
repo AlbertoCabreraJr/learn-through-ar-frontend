@@ -14,7 +14,7 @@ const getExamService = async (args: Args): Promise<Exam> => {
     .findOne({ _id: new mongoose.Types.ObjectId(examId) })
     .populate({
       path: 'questions',
-      populate: { path: 'choices' }
+      populate: { path: 'choices correctChoice' }
     })
     .exec()
 
