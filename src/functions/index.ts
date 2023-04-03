@@ -6,6 +6,7 @@ import getModule from './module/getModule'
 import updateModule from './module/updateModule'
 import updateExam from './exam/updateExam'
 import getTopic from './topic/getTopic'
+import getExam from './exam/getExam'
 import updateTopic from './topic/updateTopic'
 
 export default {
@@ -17,5 +18,6 @@ export default {
   updateExam,
   updateModule,
   getTopic,
-  updateTopic
+  updateTopic,
+  getExam
 }
