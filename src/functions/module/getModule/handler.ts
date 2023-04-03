@@ -8,12 +8,12 @@ import { getResponseHeaders } from 'src/util'
 const getModule: ValidatedEventAPIGatewayProxyEvent<{}> = async (event) => {
   try {
     const db = await connectToDatabase()
-    const course = await getModuleService({ db, moduleId: event.pathParameters.id })
+    const module = await getModuleService({ db, moduleId: event.pathParameters.id })
 
     return formatJSONResponse({
       statusCode: 200,
       headers: getResponseHeaders(),
-      body: course
+      body: module
     })
   } catch (error) {
     return formatJSONResponse({

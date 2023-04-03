@@ -12,7 +12,10 @@ const getCourseService = async (args: Args): Promise<Course> => {
   const course = await db
     .model('Course')
     .findOne({ _id: new mongoose.Types.ObjectId(courseId) })
-    .populate('modules')
+    .populate({
+      path: 'modules',
+      populate: { path: 'topics' }
+    })
     .exec()
 
   if (!course) {
