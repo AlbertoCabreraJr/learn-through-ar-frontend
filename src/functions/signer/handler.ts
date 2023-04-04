@@ -11,10 +11,11 @@ const signer: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event, 
     const credentials = event.body.credentials
 
     const signedRequest = aws4.sign(request, credentials)
+
     return formatJSONResponse({
       statusCode: 200,
       headers: getResponseHeaders(),
-      body: signedRequest.headers
+      body: signedRequest
     })
   } catch (error) {
     return formatJSONResponse({
