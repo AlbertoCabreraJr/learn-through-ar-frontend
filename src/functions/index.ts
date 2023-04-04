@@ -1,4 +1,5 @@
 import authenticateGoogle from './authenticateGoogle'
+import authenticateGoogleRefresh from './authenticateGoogleRefresh'
 import signer from './signer'
 import getCourse from './course/getCourse'
 import updateCourse from './course/updateCourse'
@@ -19,5 +20,6 @@ export default {
   updateModule,
   getTopic,
   updateTopic,
-  getExam
+  getExam,
+  authenticateGoogleRefresh
 }

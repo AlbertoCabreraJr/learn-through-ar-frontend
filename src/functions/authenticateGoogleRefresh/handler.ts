@@ -19,15 +19,15 @@ type OAuthResult = {
 
 const cognitoIdentity = new CognitoIdentity()
 const identityPoolId = process.env.COGNITO_IDENTITY_POOL_ID
-const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event) => {
+const authenticateGoogleRefresh: ValidatedEventAPIGatewayProxyEvent<{}> = async (event) => {
   try {
-    const code = getCode(event.headers)
+    const refreshToken = getCode(event.headers)
     const client_id = process.env.GOOGLE_CLIENT_ID
     const client_secret = process.env.GOOGLE_CLIENT_SECRET
     const redirect_uri = process.env.REDIRECT_URI
 
     const { data: oauthResult } = await axios.post<OAuthResult>(
-      `https://oauth2.googleapis.com/token?code=${code}&client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri}&grant_type=authorization_code`
+      `https://oauth2.googleapis.com/token?refresh_token=${refreshToken}&client_id=${client_id}&client_secret=${client_secret}&grant_type=refresh_token`
     )
 
     let params: any
@@ -55,7 +55,6 @@ const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event)
     // @ts-ignore
     awsCredentials.name = decoded.name
 
-    // Should be separate on its own route
     const db = await connectToDatabase()
 
     // @ts-ignore
@@ -69,10 +68,7 @@ const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event)
       statusCode: 200,
       headers: getResponseHeaders(),
       body: {
-        awsCredentials,
-        access_token: oauthResult.access_token,
-        refresh_token: oauthResult.refresh_token,
-        user
+        access_token: oauthResult.access_token
       }
     })
   } catch (error) {
@@ -85,4 +81,4 @@ const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event)
   }
 }
 
-export const main = middyfy(authenticateGoogle)
+export const main = middyfy(authenticateGoogleRefresh)
