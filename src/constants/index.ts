@@ -188,32 +188,5 @@ export const LEARN_THROUGH_AR_DATA = {
       finished: false
     },
     finished: false
-  },
-  moduleFour: {
-    moduleNumber: 4,
-    title: 'Module 4',
-    subtitle: 'Arithmetic Operations',
-    totalTopicsAndExam: 2,
-    topics: [
-      {
-        topicNumber: 1,
-        title: 'Arithmetic Operations Discussion',
-        finished: false
-      }
-    ],
-    progress: 0,
-    exam: {
-      title: 'Arithmetic Operations Practice Assessment',
-      questions: [
-        {
-          text: 'Are arithmetic operations supported in programming?',
-          choices: ['Yes', 'No'],
-          correctChoice: 'Yes'
-        }
-      ],
-      score: 0,
-      finished: false
-    },
-    finished: false
   }
 }
