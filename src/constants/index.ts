@@ -193,7 +193,7 @@ export const LEARN_THROUGH_AR_DATA = {
     moduleNumber: 4,
     title: 'Module 4',
     subtitle: 'Arithmetic Operations',
-    totalTopicsAndExam: 1,
+    totalTopicsAndExam: 2,
     topics: [
       {
         topicNumber: 1,

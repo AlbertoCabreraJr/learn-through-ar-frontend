@@ -15,7 +15,7 @@ const createUserService = async (args: Args): Promise<User> => {
 
   const course = await createCourseService({ db, userEmail: user.email })
 
-  const newUser = await db.model('User').create({ ...user, course })
+  const newUser = await db.model('User').create({ ...user, course: course._id })
 
   return newUser
 }
