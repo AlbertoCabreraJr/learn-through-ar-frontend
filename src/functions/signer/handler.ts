@@ -5,7 +5,7 @@ import { getResponseHeaders } from 'src/util'
 import schema from './schema'
 const aws4 = require('aws4')
 
-const signer: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event, context) => {
+const signer: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) => {
   try {
     const request = event.body.request
     const credentials = event.body.credentials
