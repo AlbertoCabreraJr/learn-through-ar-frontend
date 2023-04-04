@@ -68,6 +68,7 @@ const authenticateGoogleRefresh: ValidatedEventAPIGatewayProxyEvent<{}> = async 
       statusCode: 200,
       headers: getResponseHeaders(),
       body: {
+        awsCredentials,
         access_token: oauthResult.access_token
       }
     })
