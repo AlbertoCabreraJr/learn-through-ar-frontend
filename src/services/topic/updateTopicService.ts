@@ -20,7 +20,7 @@ const updateTopicService = async (args: Args) => {
     }
 
     topic.finished = body.finished ?? topic.finished
-    topic.save()
+    await topic.save()
   } catch (error) {
     throw error
   }

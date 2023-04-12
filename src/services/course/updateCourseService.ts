@@ -30,7 +30,7 @@ const updateCourseService = async (args: Args) => {
     course.finishedTopics = body.finishedTopics
       ? body.finishedTopics.map((topicId) => new mongoose.Types.ObjectId(topicId))
       : course.finishedTopics
-    course.save()
+    await course.save()
   } catch (error) {
     throw error
   }

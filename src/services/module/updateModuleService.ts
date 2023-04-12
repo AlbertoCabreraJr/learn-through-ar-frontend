@@ -22,7 +22,7 @@ const updateModuleService = async (args: Args) => {
 
     module.progress = body.progress ?? module.progress
     module.finished = body.finished ?? module.finished
-    module.save()
+    await module.save()
   } catch (error) {
     throw error
   }

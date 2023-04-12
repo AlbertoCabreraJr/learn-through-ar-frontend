@@ -22,7 +22,7 @@ const updateExamService = async (args: Args) => {
 
     exam.score = body.score ?? exam.score
     exam.finished = body.finished ?? exam.finished
-    exam.save()
+    await exam.save()
   } catch (error) {
     throw error
   }
