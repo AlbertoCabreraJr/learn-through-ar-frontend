@@ -19,11 +19,12 @@ const createCourseService = async (args: Args): Promise<Course> => {
   const moduleOne = await createModuleWithExamAndTopics({ db, module: LEARN_THROUGH_AR_DATA.moduleOne })
   const moduleTwo = await createModuleWithExamAndTopics({ db, module: LEARN_THROUGH_AR_DATA.moduleTwo })
   const moduleThree = await createModuleWithExamAndTopics({ db, module: LEARN_THROUGH_AR_DATA.moduleThree })
+  const moduleFour = await createModuleWithExamAndTopics({ db, module: LEARN_THROUGH_AR_DATA.moduleFour })
 
   const course = {
     userEmail,
     name: 'Programming Fundamentals',
-    modules: [moduleOne._id, moduleTwo._id, moduleThree._id],
+    modules: [moduleOne._id, moduleTwo._id, moduleThree._id, moduleFour._id],
     currentModule: moduleOne._id,
     currentTopic: moduleOne.topics[0],
     finishedModules: [],

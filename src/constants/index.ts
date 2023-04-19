@@ -135,6 +135,33 @@ export const LEARN_THROUGH_AR_DATA = {
   moduleThree: {
     moduleNumber: 3,
     title: 'Module 3',
+    subtitle: 'Arithmetic Operations',
+    totalTopicsAndExam: 2,
+    topics: [
+      {
+        topicNumber: 1,
+        title: 'Arithmetic Operations Introduction',
+        finished: false
+      }
+    ],
+    progress: 0,
+    exam: {
+      title: 'Arithmetic Operations Practice Assessment',
+      questions: [
+        {
+          text: 'Are arithmetic operations supported in programming?',
+          choices: ['Yes', 'No'],
+          correctChoice: 'No'
+        }
+      ],
+      score: 0,
+      finished: false
+    },
+    finished: false
+  },
+  moduleFour: {
+    moduleNumber: 4,
+    title: 'Module 4',
     subtitle: 'Variables',
     totalTopicsAndExam: 2,
     topics: [
