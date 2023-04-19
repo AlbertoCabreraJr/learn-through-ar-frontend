@@ -146,7 +146,7 @@ export const LEARN_THROUGH_AR_DATA = {
     ],
     progress: 0,
     exam: {
-      title: 'Arithmetic Operations Practice Assessment',
+      title: 'Arithmetic Operations Assessment',
       questions: [
         {
           text: 'Are arithmetic operations supported in programming?',
