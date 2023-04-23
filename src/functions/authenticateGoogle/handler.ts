@@ -16,7 +16,7 @@ type OAuthResult = {
   token_type: string
   refresh_token: string
 }
-//////////
+///////////
 const cognitoIdentity = new CognitoIdentity()
 const identityPoolId = process.env.COGNITO_IDENTITY_POOL_ID
 const authenticateGoogle: ValidatedEventAPIGatewayProxyEvent<{}> = async (event) => {
