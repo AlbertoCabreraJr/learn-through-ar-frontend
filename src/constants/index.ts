@@ -151,7 +151,7 @@ export const LEARN_THROUGH_AR_DATA = {
         {
           text: 'Are arithmetic operations supported in programming?',
           choices: ['Yes', 'No'],
-          correctChoice: 'No'
+          correctChoice: 'Yes'
         }
       ],
       score: 0,
