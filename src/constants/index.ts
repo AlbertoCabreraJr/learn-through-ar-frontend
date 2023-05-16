@@ -215,5 +215,73 @@ export const LEARN_THROUGH_AR_DATA = {
       finished: false
     },
     finished: false
+  },
+  moduleFive: {
+    moduleNumber: 5,
+    title: 'Module 5',
+    subtitle: 'Control Structures',
+    totalTopicsAndExam: 3,
+    topics: [
+      {
+        topicNumber: 1,
+        title: 'if/then condition',
+        finished: false
+      },
+      {
+        topicNumber: 2,
+        title: 'Loops',
+        finished: false
+      }
+    ],
+    progress: 0,
+    exam: {
+      title: 'Control Structures Assessment',
+      questions: [
+        {
+          text: 'What is programming?',
+          choices: [
+            'A process of writing instructions for a computer to execute tasks and solve problems',
+            'A way to design computer hardware',
+            'A type of software application'
+          ],
+          correctChoice: 'A process of writing instructions for a computer to execute tasks and solve problems'
+        },
+        {
+          text: 'Where is a program written?',
+          choices: [
+            'A web browser',
+            'A text editor or integrated development environment (IDE)',
+            'A word processing program'
+          ],
+          correctChoice: 'A text editor or integrated development environment (IDE)'
+        },
+        {
+          text: 'What is an example of a programming language?',
+          choices: ['Python', 'Tiger', 'Cat'],
+          correctChoice: 'Python'
+        },
+        {
+          text: 'What is BASIC?',
+          choices: [
+            'A simple and accessible programming language',
+            'A type of computer hardware',
+            'A way to design software applications'
+          ],
+          correctChoice: 'A simple and accessible programming language'
+        },
+        {
+          text: 'What was the impact of the first iPhone on computing?',
+          choices: [
+            'It popularized the use of smartphones and mobile computing',
+            'It made it difficult to use smartphones',
+            'It made it easier to use desktop computers'
+          ],
+          correctChoice: 'It popularized the use of smartphones and mobile computing'
+        }
+      ],
+      score: 0,
+      finished: false
+    },
+    finished: false
   }
 }
