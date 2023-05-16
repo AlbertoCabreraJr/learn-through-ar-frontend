@@ -238,45 +238,49 @@ export const LEARN_THROUGH_AR_DATA = {
       title: 'Control Structures Assessment',
       questions: [
         {
-          text: 'What is programming?',
+          text: 'What is the primary purpose of control structures in programming languages?',
           choices: [
-            'A process of writing instructions for a computer to execute tasks and solve problems',
-            'A way to design computer hardware',
-            'A type of software application'
+            'They make the code look fancy',
+            'They add a lot of drama and suspense to the code',
+            'They control the flow of execution in a program'
           ],
-          correctChoice: 'A process of writing instructions for a computer to execute tasks and solve problems'
+          correctChoice: 'They control the flow of execution in a program'
         },
         {
-          text: 'Where is a program written?',
+          text: 'When the condition in an "if/then" statement is false, what does the program do?',
           choices: [
-            'A web browser',
-            'A text editor or integrated development environment (IDE)',
-            'A word processing program'
+            'It has an existential crisis',
+            'It skips the action and moves on to the next set of instructions',
+            'It stops working and asks for a raise'
           ],
-          correctChoice: 'A text editor or integrated development environment (IDE)'
+          correctChoice: 'It skips the action and moves on to the next set of instructions'
         },
         {
-          text: 'What is an example of a programming language?',
-          choices: ['Python', 'Tiger', 'Cat'],
-          correctChoice: 'Python'
+          text: `What's the purpose of a loop in programming?`,
+          choices: [
+            'To repeat a set of instructions multiple times based on a condition',
+            'To convince the computer to take a break',
+            `It's the program's way of saying "Once more, with feeling!"`
+          ],
+          correctChoice: 'To repeat a set of instructions multiple times based on a condition'
         },
         {
-          text: 'What is BASIC?',
+          text: 'Why are loops considered a powerful concept in programming?',
           choices: [
-            'A simple and accessible programming language',
-            'A type of computer hardware',
-            'A way to design software applications'
+            'They have great stage presence',
+            'They allow for the processing of large amounts of data and reduce redundancy',
+            'They have cool tattoos and piercings'
           ],
-          correctChoice: 'A simple and accessible programming language'
+          correctChoice: 'They allow for the processing of large amounts of data and reduce redundancy'
         },
         {
-          text: 'What was the impact of the first iPhone on computing?',
+          text: 'How does an "if/then" condition contribute to decision-making processes in a program?',
           choices: [
-            'It popularized the use of smartphones and mobile computing',
-            'It made it difficult to use smartphones',
-            'It made it easier to use desktop computers'
+            `It doesn't, it's just there to look pretty`,
+            `It's there to confuse programmers`,
+            'It enables the computer to make choices based on the condition it receives'
           ],
-          correctChoice: 'It popularized the use of smartphones and mobile computing'
+          correctChoice: 'It enables the computer to make choices based on the condition it receives'
         }
       ],
       score: 0,
