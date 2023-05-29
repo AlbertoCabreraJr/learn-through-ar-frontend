@@ -152,6 +152,26 @@ export const LEARN_THROUGH_AR_DATA = {
           text: 'Are arithmetic operations supported in programming?',
           choices: ['Yes', 'No'],
           correctChoice: 'Yes'
+        },
+        {
+          text: 'Which operator is used for multiplication in programming?',
+          choices: ['+', '*', '/', '/'],
+          correctChoice: '*'
+        },
+        {
+          text: 'What is the remainder when 27 is divided by 5 using the modulo operator?',
+          choices: ['1', '2', '3', '4'],
+          correctChoice: '2'
+        },
+        {
+          text: 'Which of the following is NOT considered a basic arithmetic operation in programming?',
+          choices: ['Addition', 'Subtraction', 'Multiplication', 'Imagination'],
+          correctChoice: '2'
+        },
+        {
+          text: 'What is the operation used to calculate the remainder in programming?',
+          choices: ['Addition', 'Subtraction', 'Multiplication', 'Modulo'],
+          correctChoice: '2'
         }
       ],
       score: 0,
