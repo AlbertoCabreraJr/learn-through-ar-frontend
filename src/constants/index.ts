@@ -244,7 +244,7 @@ export const LEARN_THROUGH_AR_DATA = {
     topics: [
       {
         topicNumber: 1,
-        title: 'if/then condition',
+        title: 'IF/THEN condition',
         finished: false
       },
       {
@@ -267,7 +267,7 @@ export const LEARN_THROUGH_AR_DATA = {
           correctChoice: 'They control the flow of execution in a program'
         },
         {
-          text: 'When the condition in an "if/then" statement is false, what does the program do?',
+          text: 'When the condition in an "IF/THEN" statement is false, what does the program do?',
           choices: [
             'It has an existential crisis',
             'It skips the action and moves on to the next set of instructions',
@@ -294,7 +294,7 @@ export const LEARN_THROUGH_AR_DATA = {
           correctChoice: 'They allow for the processing of large amounts of data and reduce redundancy'
         },
         {
-          text: 'How does an "if/then" condition contribute to decision-making processes in a program?',
+          text: 'How does an "IF/THEN" condition contribute to decision-making processes in a program?',
           choices: [
             `It doesn't, it's just there to look pretty`,
             `It's there to confuse programmers`,
