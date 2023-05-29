@@ -22,6 +22,9 @@ const getExamService = async (args: Args): Promise<Exam> => {
     throw new Error('Exam does not exist')
   }
 
+  const shuffledQuestions = exam.questions.slice().sort(() => Math.random() - 0.5)
+  exam.questions = shuffledQuestions
+
   return exam
 }
 
