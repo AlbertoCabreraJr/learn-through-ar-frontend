@@ -166,12 +166,12 @@ export const LEARN_THROUGH_AR_DATA = {
         {
           text: 'Which of the following is NOT considered a basic arithmetic operation in programming?',
           choices: ['Addition', 'Subtraction', 'Multiplication', 'Imagination'],
-          correctChoice: '2'
+          correctChoice: 'Imagination'
         },
         {
           text: 'What is the operation used to calculate the remainder in programming?',
           choices: ['Addition', 'Subtraction', 'Multiplication', 'Modulo'],
-          correctChoice: '2'
+          correctChoice: 'Modulo'
         }
       ],
       score: 0,
