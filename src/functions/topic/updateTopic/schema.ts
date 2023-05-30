@@ -3,12 +3,10 @@ export default {
   properties: {
     finished: { type: 'boolean' },
     startTime: {
-      type: 'string',
-      format: 'date'
+      type: 'string'
     },
     endTime: {
-      type: 'string',
-      format: 'date'
+      type: 'string'
     }
   }
 } as const

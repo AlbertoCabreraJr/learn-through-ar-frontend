@@ -15,10 +15,10 @@ const topicSchema = new mongoose.Schema(
       default: false
     },
     startTime: {
-      type: Date
+      type: String
     },
     endTime: {
-      type: Date
+      type: String
     }
   },
   { timestamps: true }
