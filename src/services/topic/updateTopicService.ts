@@ -6,6 +6,8 @@ type Args = {
   topicId: string
   body: {
     finished?: boolean
+    startTime?: any
+    endTime?: any
   }
 }
 
@@ -20,6 +22,8 @@ const updateTopicService = async (args: Args) => {
     }
 
     topic.finished = body.finished ?? topic.finished
+    topic.startTime = body.startTime ?? topic.startTime
+    topic.endTime = body.endTime ?? topic.endTime
     await topic.save()
   } catch (error) {
     throw error

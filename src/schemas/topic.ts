@@ -13,6 +13,12 @@ const topicSchema = new mongoose.Schema(
     finished: {
       type: Boolean,
       default: false
+    },
+    startTime: {
+      type: Date
+    },
+    endTime: {
+      type: Date
     }
   },
   { timestamps: true }

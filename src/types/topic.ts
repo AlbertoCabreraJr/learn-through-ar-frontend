@@ -6,6 +6,8 @@ type Topic = {
   title: string
   finished: boolean
   module: mongoose.Types.ObjectId
+  startTime: any
+  endTime: any
   createdAt: Date
   updatedAt: Date
 }
