@@ -19,6 +19,12 @@ const examSchema = new mongoose.Schema(
     finished: {
       type: Boolean,
       default: false
+    },
+    startTime: {
+      type: String
+    },
+    endTime: {
+      type: String
     }
   },
   { timestamps: true }

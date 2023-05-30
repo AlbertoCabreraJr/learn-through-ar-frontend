@@ -7,6 +7,8 @@ type Args = {
   body: {
     score?: number
     finished?: boolean
+    startTime?: any
+    endTime?: any
   }
 }
 
@@ -22,6 +24,8 @@ const updateExamService = async (args: Args) => {
 
     exam.score = body.score ?? exam.score
     exam.finished = body.finished ?? exam.finished
+    exam.startTime = body.startTime ?? exam.startTime
+    exam.endTime = body.endTime ?? exam.endTime
     await exam.save()
   } catch (error) {
     throw error

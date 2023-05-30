@@ -6,6 +6,8 @@ type Exam = {
   questions: mongoose.Types.ObjectId[]
   score: number
   finished: boolean
+  startTime: any
+  endTime: any
   createdAt: Date
   updatedAt: Date
 }
