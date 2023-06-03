@@ -155,7 +155,7 @@ export const LEARN_THROUGH_AR_DATA = {
         },
         {
           text: 'Which operator is used for multiplication in programming?',
-          choices: ['+', '*', '/', '/'],
+          choices: ['+', '*', '/', '%'],
           correctChoice: '*'
         },
         {
